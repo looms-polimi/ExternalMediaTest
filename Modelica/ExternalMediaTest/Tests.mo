@@ -1,6 +1,13 @@
 within ExternalMediaTest;
 package Tests
 
+  model TestExternalError
+    Real x;
+  equation
+    x = Functions.testExternalError(time);
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+  end TestExternalError;
+
   model TestDensityCO2 "Tests the densityCO2_pT function"
     parameter SI.Pressure p = 76e6 "Constant pressure";
     parameter SI.Temperature Tmin = 273.15+20 "Minimum temperature";
@@ -13,13 +20,6 @@ package Tests
     rho = Functions.densityCO2_pT(p,T);
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
   end TestDensityCO2;
-
-  model TestExternalError
-    Real x;
-  equation
-    x = Functions.testExternalError(2*time);
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
-  end TestExternalError;
 
   model TestState
     parameter SI.Pressure p = 1e5 "Constant pressure";
