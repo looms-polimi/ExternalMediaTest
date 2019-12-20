@@ -12,14 +12,7 @@ package Functions
      {
        testExternalErrorImpl(u, y, ModelicaError);
      }
-    
-     void testExternalErrorImpl(double u, double *y, void error(const char *))
-     {
-       if(u > 0.5)
-         error(\"u > 0.5\");
-       *y = u*10;
-     } 
-    ");
+    ",   Library="library", IncludeDirectory="modelica://ExternalMediaTest/Resources/Include", LibraryDirectory="modelica://ExternalMediaTest/Resources/Library");
 
   end testExternalError;
 
